@@ -16,13 +16,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2  # Checks out the code from your repository
 
-      - name: Set up CMake
-        uses: actions/setup-cmake@v2  # Official CMake setup action
-        with:
-          cmake-version: '3.22'  # Specify your desired CMake version (adjust as necessary)
-
-      - name: Install build dependencies
-        run: sudo apt-get install -y g++ make # Installing necessary build tools
+      - name: Install CMake
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ make  # Install CMake and build tools
 
       - name: Build Project
         run: |
@@ -38,13 +35,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Set up CMake
-        uses: actions/setup-cmake@v2
-        with:
-          cmake-version: '3.22'
-
-      - name: Install build dependencies
-        run: sudo apt-get install -y g++ make
+      - name: Install CMake
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ make  # Install CMake and build tools
 
       - name: Build Project
         run: |
